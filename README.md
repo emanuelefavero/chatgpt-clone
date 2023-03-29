@@ -16,7 +16,7 @@ It is really useful if the free chatGPT is down
 > Note: You can choose any secret key string you want
 
 ```bash
-NEXT_PUBLIC_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 NEXT_PUBLIC_SECRET='Your secret key'
 ```
 

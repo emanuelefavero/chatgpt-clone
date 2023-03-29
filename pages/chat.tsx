@@ -57,6 +57,7 @@ export default function Chat() {
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
           />
+          {/* TODO: Add react-icons to Ask button */}
           <button onClick={handleAsk}>Ask</button>
         </div>
 
