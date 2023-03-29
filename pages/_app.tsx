@@ -1,11 +1,27 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
+
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
+import { isAuthenticated } from '../utils/auth'
+
 import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function App({ Component, pageProps }: AppProps) {
+  const router = useRouter()
+
+  useEffect(() => {
+    // If the user is not authenticated and is not on the login page, redirect to the login page
+    if (!isAuthenticated() && router.pathname !== 'login') {
+      router.push('/login')
+    } else if (isAuthenticated()) {
+      router.push('/chat')
+    }
+  }, [router])
+
   return (
     <>
       <Head>
