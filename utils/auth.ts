@@ -1,5 +1,4 @@
 export const authenticate = (secretWord: string): void => {
-  console.log('process.env.NEXT_PUBLIC_SECRET', process.env.NEXT_PUBLIC_SECRET)
   // Check if the secret word is equal to the environment variable
   if (secretWord === process.env.NEXT_PUBLIC_SECRET) {
     // Store the secret word in localStorage

@@ -6,21 +6,18 @@ import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { isAuthenticated } from '../utils/auth'
 
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
-
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter()
 
   useEffect(() => {
-    // If the user is not authenticated and is not on the login page, redirect to the login page
     if (!isAuthenticated() && router.pathname !== 'login') {
       router.push('/login')
     } else if (isAuthenticated()) {
       router.push('/chat')
     }
-  }, [router])
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []) // ! router is not included in the dependency array because we only want to run this effect once
 
   return (
     <>
@@ -31,9 +28,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main className={inter.className}>
-        <Component {...pageProps} />
-      </main>
+      <Component {...pageProps} />
     </>
   )
 }

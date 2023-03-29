@@ -17,6 +17,7 @@ export default function Login() {
       router.push('/chat')
     } catch (error: any) {
       // If the secret word is incorrect, display an error message
+      // TODO: Use react-toastify to display the error message
       alert(error.message)
     }
   }
@@ -33,15 +34,17 @@ export default function Login() {
         <title>Login</title>
       </Head>
 
-      <h1>Login</h1>
-      <form onSubmit={handleLoginFormSubmit}>
-        <input
-          type='password'
-          value={secretWord}
-          onChange={handleSecretWordChange}
-        />
-        <button type='submit'>Login</button>
-      </form>
+      <main>
+        <h1>Login</h1>
+        <form onSubmit={handleLoginFormSubmit}>
+          <input
+            type='password'
+            value={secretWord}
+            onChange={handleSecretWordChange}
+          />
+          <button type='submit'>Login</button>
+        </form>
+      </main>
     </>
   )
 }
