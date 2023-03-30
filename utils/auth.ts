@@ -5,7 +5,7 @@ export const authenticate = (secretWord: string): void => {
     localStorage.setItem('secretWord', secretWord)
   } else {
     // If the secret word is not correct, throw an error
-    throw new Error('Incorrect secret word')
+    throw new Error("🤓☝️ Ah Ah Ah! You didn't say the magic word!")
   }
 }
 
