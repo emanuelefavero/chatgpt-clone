@@ -71,14 +71,20 @@ export default function Chat() {
         <div className='container flex bg-slate-800 max-w-2xl py-3 px-4 rounded-md border border-slate-700 shadow-custom'>
           <div className='flex-1 flex flex-col'>
             <textarea
-              className='w-full resize-none overflow-hidden h-6 flex items-center justify-center bg-slate-800 text-md font-medium mr-3 placeholder-slate-500 focus:outline-none'
+              className='w-full resize-none overflow-hidden h-6 flex items-center justify-center bg-slate-800 text-md font-medium mr-3 scrollbar-bg-slate-800 placeholder-slate-500 focus:outline-none'
               placeholder='Send a message...'
               ref={textareaRef}
               value={question}
               onChange={handleInputChange}
               onFocus={handleFocus}
               onBlur={handleBlur}
-              style={{ overflowY: 'scroll', maxHeight: '15rem' }}
+              style={{
+                overflowY: 'scroll',
+                maxHeight: '15rem',
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none',
+                ...(textareaHeight === undefined && { scrollbarHide: true }),
+              }}
             />
             <div className='flex-1'></div>{' '}
             {/* empty space to push button to the bottom */}

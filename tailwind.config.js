@@ -13,7 +13,8 @@ module.exports = {
       boxShadow: {
         custom: '0 0 7px 3px rgba(11, 11, 13, 0.15)',
       },
+      scrollbar: ['rounded-lg'],
     },
   },
-  plugins: [],
+  plugins: [require('tailwind-scrollbar')],
 }
