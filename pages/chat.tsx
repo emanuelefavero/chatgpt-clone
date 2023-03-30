@@ -1,25 +1,6 @@
-// import Header from '@/components/Header'
-// import { Inter } from 'next/font/google'
-
-// const inter = Inter({ subsets: ['latin'] })
-
-// export default function Chat() {
-//   return (
-//     <>
-//       <header className={inter.className}>
-//         <Header />
-//       </header>
-
-//       <main className={inter.className}>
-//         <h1>Chat Page</h1>
-//         <p>You are logged in.</p>
-//       </main>
-//     </>
-//   )
-// }
-
 import { useState } from 'react'
 import Header from '@/components/Header'
+import { IoPaperPlaneOutline } from 'react-icons/io5'
 import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -58,7 +39,9 @@ export default function Chat() {
             onChange={(e) => setQuestion(e.target.value)}
           />
           {/* TODO: Add react-icons to Ask button */}
-          <button onClick={handleAsk}>Ask</button>
+          <button onClick={handleAsk}>
+            <IoPaperPlaneOutline />
+          </button>
         </div>
 
         <p>{answer}</p>

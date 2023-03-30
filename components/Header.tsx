@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router'
+import { FiLogOut, FiPlus } from 'react-icons/fi'
 
 export default function Header() {
   const router = useRouter()
@@ -15,8 +16,14 @@ export default function Header() {
   return (
     <>
       {/* TODO: Add react-icons to Log out and New chat */}
-      <button onClick={handleLogoutButtonClick}>Log out</button>
-      <button onClick={() => router.reload()}>+ New chat</button>
+      <button onClick={handleLogoutButtonClick}>
+        <FiLogOut />
+        Log out
+      </button>
+      <button onClick={() => router.reload()}>
+        <FiPlus />
+        New chat
+      </button>
     </>
   )
 }
