@@ -144,6 +144,19 @@ input {
   border-width: 1px;
 }
 
+.animate-3d-rotate {
+  animation: animate-3d-rotate 4s ease-out infinite;
+}
+
+@keyframes animate-3d-rotate {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
 /* DARK MODE */
 /* @media (prefers-color-scheme: dark) {
   html {

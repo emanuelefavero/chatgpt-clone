@@ -52,7 +52,7 @@ export default function Login() {
 
       <main className='flex flex-col justify-center items-center w-full h-screen'>
         <Image
-          className='mb-4 select-none'
+          className='mb-4 select-none animate-3d-rotate'
           src='/logo.png'
           alt='logo'
           width={44}
