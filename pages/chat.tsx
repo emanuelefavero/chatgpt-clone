@@ -28,22 +28,11 @@ export default function Chat() {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setQuestion(e.target.value)
-    // set the textarea height to fit the content
-    if (textareaRef.current) {
-      // textareaRef.current.style.height = 'auto'
-      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`
-      setTextareaHeight(textareaRef.current.scrollHeight)
-    }
   }
 
   const handleFocus = () => {
-    // reset the height to fit the content
-    // if (textareaRef.current && textareaHeight !== undefined) {
-    //   textareaRef.current.style.height = `${textareaHeight}px`
-    // }
-
     if (textareaRef.current) {
-      textareaRef.current.style.height = '3.9rem'
+      textareaRef.current.style.height = '4.5rem'
     }
   }
 
@@ -67,37 +56,45 @@ export default function Chat() {
         <h1>Chat Page</h1>
         <p>You are logged in.</p>
 
-        {/* TIP: see tailwind.config.js for shadow-custom values */}
-        <div className='container flex bg-slate-800 max-w-2xl py-3 px-4 rounded-md border border-slate-700 shadow-custom'>
-          <div className='flex-1 flex flex-col'>
-            <textarea
-              className='w-full resize-none overflow-hidden h-6 flex items-center justify-center bg-slate-800 text-md font-medium mr-3 scrollbar-bg-slate-800 placeholder-slate-500 focus:outline-none'
-              placeholder='Send a message...'
-              ref={textareaRef}
-              value={question}
-              onChange={handleInputChange}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-              style={{
-                overflowY: 'scroll',
-                maxHeight: '15rem',
-                scrollbarWidth: 'none',
-                msOverflowStyle: 'none',
-                ...(textareaHeight === undefined && { scrollbarHide: true }),
-              }}
-            />
-            <div className='flex-1'></div>{' '}
-            {/* empty space to push button to the bottom */}
+        {/* INPUT SECTION */}
+        <section className='w-full h-32 bg-gradient-to-t from-primaryBackground to-transparent fixed bottom-0 left-0 flex justify-center items-center p-5'>
+          {/* TIP: see tailwind.config.js for shadow-custom values */}
+          <div className='container flex bg-slate-800 max-w-2xl py-3 px-4 rounded-md border border-slate-700 shadow-custom'>
+            <div className='flex-1 flex flex-col'>
+              <textarea
+                className='w-full resize-none overflow-hidden h-6 flex items-center justify-center bg-slate-800 text-md font-medium mr-3 scrollbar-bg-slate-800 placeholder-slate-500 focus:outline-none transition-height duration-300 outline-none'
+                placeholder='Send a message...'
+                ref={textareaRef}
+                value={question}
+                onChange={handleInputChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+                style={{
+                  overflowY: 'scroll',
+                  maxHeight: '15rem',
+                  scrollbarWidth: 'none',
+                  msOverflowStyle: 'none',
+                  ...(textareaHeight === undefined && { scrollbarHide: true }),
+                }}
+              />
+              <div className='flex-1'></div>{' '}
+              {/* empty space to push button to the bottom */}
+            </div>
+            <div className='flex justify-center items-end ml-1'>
+              <button
+                onClick={handleAsk}
+                className={`border-none rounded-md py-1 px-2 w-max h-max focus:outline-none ${
+                  question.length === 0
+                    ? 'text-slate-600'
+                    : 'text-slate-400 hover:bg-slate-900'
+                }`}
+                disabled={question.length === 0}
+              >
+                <IoPaperPlaneOutline />
+              </button>
+            </div>
           </div>
-          <div className='flex justify-center items-end ml-1'>
-            <button
-              onClick={handleAsk}
-              className='border-none rounded-md py-1 px-2 w-max h-max focus:outline-none text-slate-400 hover:bg-slate-900'
-            >
-              <IoPaperPlaneOutline />
-            </button>
-          </div>
-        </div>
+        </section>
 
         <p>{answer}</p>
       </main>

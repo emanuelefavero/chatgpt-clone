@@ -14,6 +14,9 @@ module.exports = {
         custom: '0 0 7px 3px rgba(11, 11, 13, 0.15)',
       },
       scrollbar: ['rounded-lg'],
+      colors: {
+        primaryBackground: '#0f1622',
+      },
     },
   },
   plugins: [require('tailwind-scrollbar')],
