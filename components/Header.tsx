@@ -15,7 +15,6 @@ export default function Header() {
 
   return (
     <>
-      {/* TODO: Add react-icons to Log out and New chat */}
       <button
         onClick={handleLogoutButtonClick}
         className='border-0 flex items-center px-0.5 rounded-md focus:outline-none focus:bg-slate-800 focus:bg-opacity-60'
