@@ -35,7 +35,8 @@ export default function Login() {
       </Head>
 
       <main>
-        <h1>Login</h1>
+        <p>Welcome to ChatGPT Clone</p>
+        <p>Say the magic word to continue</p>
         <form onSubmit={handleLoginFormSubmit}>
           <input
             type='password'
