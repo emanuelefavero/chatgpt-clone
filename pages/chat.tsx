@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import Header from '@/components/Header'
 import { IoPaperPlaneOutline } from 'react-icons/io5'
 import { Inter } from 'next/font/google'
@@ -8,6 +8,10 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Chat() {
   const [question, setQuestion] = useState('')
   const [answer, setAnswer] = useState('')
+  const textareaRef = useRef<HTMLTextAreaElement>(null)
+  const [textareaHeight, setTextareaHeight] = useState<number | undefined>(
+    undefined
+  )
 
   async function handleAsk() {
     const response = await fetch('/api/openai', {
@@ -22,6 +26,35 @@ export default function Chat() {
     setQuestion('')
   }
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setQuestion(e.target.value)
+    // set the textarea height to fit the content
+    if (textareaRef.current) {
+      // textareaRef.current.style.height = 'auto'
+      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`
+      setTextareaHeight(textareaRef.current.scrollHeight)
+    }
+  }
+
+  const handleFocus = () => {
+    // reset the height to fit the content
+    // if (textareaRef.current && textareaHeight !== undefined) {
+    //   textareaRef.current.style.height = `${textareaHeight}px`
+    // }
+
+    if (textareaRef.current) {
+      textareaRef.current.style.height = '3.9rem'
+    }
+  }
+
+  const handleBlur = () => {
+    // reset the height to one line
+    if (textareaRef.current) {
+      textareaRef.current.style.height = '1.5rem'
+      setTextareaHeight(undefined)
+    }
+  }
+
   return (
     <>
       <header
@@ -34,13 +67,33 @@ export default function Chat() {
         <h1>Chat Page</h1>
         <p>You are logged in.</p>
 
-        <div>
-          <input
-            type='text'
+        {/* TIP: see tailwind.config.js for shadow-custom values */}
+        <div className='container flex bg-slate-800 max-w-2xl py-3 px-4 rounded-md border border-slate-700 shadow-custom'>
+          {/* <textarea
+            className='w-full resize-none overflow-hidden h-6 flex items-center justify-center bg-slate-800 text-md font-medium placeholder-slate-500 focus:outline-none'
+            placeholder='Send a message...'
+            ref={textareaRef}
             value={question}
-            onChange={(e) => setQuestion(e.target.value)}
+            onChange={handleInputChange}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+          /> */}
+
+          <textarea
+            className='w-full resize-none overflow-hidden h-6 flex items-center justify-center bg-slate-800 text-md font-medium placeholder-slate-500 focus:outline-none'
+            placeholder='Send a message...'
+            ref={textareaRef}
+            value={question}
+            onChange={handleInputChange}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            style={{ overflowY: 'scroll', maxHeight: '15rem' }} // add these styles
           />
-          <button onClick={handleAsk}>
+
+          <button
+            onClick={handleAsk}
+            className='border-none rounded-md py-1 px-2 focus:outline-none text-slate-400 hover:bg-slate-900'
+          >
             <IoPaperPlaneOutline />
           </button>
         </div>

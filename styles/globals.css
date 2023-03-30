@@ -4,7 +4,8 @@
 
 /* DEFAULT STYLING */
 :root {
-  --color-background: #0f1622;
+  /* --color-background: #0f1622; */
+  --color-background: #1b273b;
   --color-primary: #6366f1;
   --color-primary-darker: #4f46e5;
   --color-selection: rgb(99, 102, 241, 0.2);
