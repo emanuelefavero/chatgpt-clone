@@ -24,7 +24,9 @@ export default function Chat() {
 
   return (
     <>
-      <header className={inter.className}>
+      <header
+        className={`${inter.className} flex justify-between items-center border-b border-slate-400 border-opacity-20`}
+      >
         <Header />
       </header>
 

@@ -16,12 +16,18 @@ export default function Header() {
   return (
     <>
       {/* TODO: Add react-icons to Log out and New chat */}
-      <button onClick={handleLogoutButtonClick}>
-        <FiLogOut />
+      <button
+        onClick={handleLogoutButtonClick}
+        className='border-0 flex items-center px-0.5 rounded-md focus:outline-none focus:bg-slate-800 focus:bg-opacity-60'
+      >
+        <FiLogOut className='mr-2' />
         Log out
       </button>
-      <button onClick={() => router.reload()}>
-        <FiPlus />
+      <button
+        onClick={() => router.reload()}
+        className='border-0 flex items-center px-0.5 rounded-md focus:outline-none focus:bg-slate-800 focus:bg-opacity-60'
+      >
+        <FiPlus className='mr-2' />
         New chat
       </button>
     </>
