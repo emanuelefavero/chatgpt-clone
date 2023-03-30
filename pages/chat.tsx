@@ -69,33 +69,28 @@ export default function Chat() {
 
         {/* TIP: see tailwind.config.js for shadow-custom values */}
         <div className='container flex bg-slate-800 max-w-2xl py-3 px-4 rounded-md border border-slate-700 shadow-custom'>
-          {/* <textarea
-            className='w-full resize-none overflow-hidden h-6 flex items-center justify-center bg-slate-800 text-md font-medium placeholder-slate-500 focus:outline-none'
-            placeholder='Send a message...'
-            ref={textareaRef}
-            value={question}
-            onChange={handleInputChange}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
-          /> */}
-
-          <textarea
-            className='w-full resize-none overflow-hidden h-6 flex items-center justify-center bg-slate-800 text-md font-medium placeholder-slate-500 focus:outline-none'
-            placeholder='Send a message...'
-            ref={textareaRef}
-            value={question}
-            onChange={handleInputChange}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
-            style={{ overflowY: 'scroll', maxHeight: '15rem' }} // add these styles
-          />
-
-          <button
-            onClick={handleAsk}
-            className='border-none rounded-md py-1 px-2 focus:outline-none text-slate-400 hover:bg-slate-900'
-          >
-            <IoPaperPlaneOutline />
-          </button>
+          <div className='flex-1 flex flex-col'>
+            <textarea
+              className='w-full resize-none overflow-hidden h-6 flex items-center justify-center bg-slate-800 text-md font-medium mr-3 placeholder-slate-500 focus:outline-none'
+              placeholder='Send a message...'
+              ref={textareaRef}
+              value={question}
+              onChange={handleInputChange}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+              style={{ overflowY: 'scroll', maxHeight: '15rem' }}
+            />
+            <div className='flex-1'></div>{' '}
+            {/* empty space to push button to the bottom */}
+          </div>
+          <div className='flex justify-center items-end ml-1'>
+            <button
+              onClick={handleAsk}
+              className='border-none rounded-md py-1 px-2 w-max h-max focus:outline-none text-slate-400 hover:bg-slate-900'
+            >
+              <IoPaperPlaneOutline />
+            </button>
+          </div>
         </div>
 
         <p>{answer}</p>
