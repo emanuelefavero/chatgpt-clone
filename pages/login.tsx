@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Image from 'next/image'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { authenticate } from '../utils/auth'
@@ -34,14 +35,17 @@ export default function Login() {
         <title>Login</title>
       </Head>
 
-      <main>
+      <main className='login'>
+        <Image src='/logo.png' alt='logo' width={48} height={48} />
         <p>Welcome to ChatGPT Clone</p>
         <p>Say the magic word to continue</p>
         <form onSubmit={handleLoginFormSubmit}>
           <input
+            placeholder='Magic Word'
             type='password'
             value={secretWord}
             onChange={handleSecretWordChange}
+            required
           />
           <button type='submit'>Login</button>
         </form>
