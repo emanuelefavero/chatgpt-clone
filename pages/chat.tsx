@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react'
 import Image from 'next/image'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 import { IoPaperPlaneOutline } from 'react-icons/io5'
 import { Inter } from 'next/font/google'
 
@@ -47,15 +48,17 @@ export default function Chat() {
 
   return (
     <>
+      {/* HEADER */}
       <header
         className={`${inter.className} flex justify-between items-center border-b border-slate-400 border-opacity-20`}
       >
         <Header />
       </header>
 
+      {/* MAIN */}
       <main className={inter.className}>
         {/* INPUT SECTION */}
-        <section className='w-full h-32 bg-gradient-to-t from-primaryBackground to-transparent fixed bottom-0 left-0 flex justify-center items-center p-5'>
+        <section className='w-full h-32 bg-gradient-to-t from-primaryBackground to-transparent fixed bottom-8 left-0 flex justify-center items-center p-5 sm:bottom-6'>
           {/* TIP: see tailwind.config.js for shadow-custom values */}
           <div className='container flex bg-slate-800 max-w-2xl py-3 px-4 rounded-md border border-slate-700 shadow-custom'>
             <div className='flex-1 flex flex-col'>
@@ -124,6 +127,13 @@ export default function Chat() {
           </div>
         </section>
       </main>
+
+      {/* FOOTER */}
+      <footer
+        className={`${inter.className} w-full flex justify-center items-center fixed bottom-0 bg-primaryBackground pb-2`}
+      >
+        <Footer />
+      </footer>
     </>
   )
 }

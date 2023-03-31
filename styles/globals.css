@@ -99,10 +99,6 @@ a {
   color: var(--color-primary);
 }
 
-a:hover {
-  text-decoration: underline;
-}
-
 /* button {
   cursor: pointer;
   border: 1px solid var(--color-primary);
