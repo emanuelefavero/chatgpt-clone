@@ -105,6 +105,8 @@ export default function Chat() {
               height={30}
             />
             <p className='text-slate-200 leading-7'>
+              {/* TODO: uncomment next line and remove lorem text */}
+              {/* {answer} */}
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Voluptatum labore delectus, odit voluptates rem dolores porro
               vitae inventore in deserunt tenetur optio commodi exercitationem
@@ -119,7 +121,6 @@ export default function Chat() {
               Dolorum, deserunt incidunt consectetur commodi laborum
               voluptatibus ex?
             </p>
-            {/* <p>{answer}</p> */}
           </div>
         </section>
       </main>
