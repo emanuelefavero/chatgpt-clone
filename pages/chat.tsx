@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react'
+import Image from 'next/image'
 import Header from '@/components/Header'
 import { IoPaperPlaneOutline } from 'react-icons/io5'
 import { Inter } from 'next/font/google'
@@ -53,9 +54,6 @@ export default function Chat() {
       </header>
 
       <main className={inter.className}>
-        <h1>Chat Page</h1>
-        <p>You are logged in.</p>
-
         {/* INPUT SECTION */}
         <section className='w-full h-32 bg-gradient-to-t from-primaryBackground to-transparent fixed bottom-0 left-0 flex justify-center items-center p-5'>
           {/* TIP: see tailwind.config.js for shadow-custom values */}
@@ -96,7 +94,34 @@ export default function Chat() {
           </div>
         </section>
 
-        <p>{answer}</p>
+        {/* ANSWER SECTION */}
+        <section className='w-full flex justify-center bg-slate-800 py-5 px-4'>
+          <div className='max-w-2xl container flex flex-row justify-start items-start'>
+            <Image
+              className='select-none mr-5 mb-4'
+              src='/logo.png'
+              alt='logo'
+              width={30}
+              height={30}
+            />
+            <p className='text-slate-200 leading-7'>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Voluptatum labore delectus, odit voluptates rem dolores porro
+              vitae inventore in deserunt tenetur optio commodi exercitationem
+              quaerat laudantium ex. Magni nisi aliquam quod, nam incidunt quas
+              ratione omnis possimus et porro nobis maiores exercitationem
+              accusantium laborum quaerat vero, quae provident numquam dolor
+              facilis! Quod corrupti blanditiis reprehenderit! Obcaecati dicta
+              necessitatibus sequi excepturi esse dolorem delectus, consequatur
+              odio, soluta atque sit eligendi omnis vel quidem deleniti ratione.
+              Odit doloribus animi repellat quae, ex atque libero vel
+              accusantium recusandae sunt natus dolore quam velit sint deserunt?
+              Dolorum, deserunt incidunt consectetur commodi laborum
+              voluptatibus ex?
+            </p>
+            {/* <p>{answer}</p> */}
+          </div>
+        </section>
       </main>
     </>
   )
