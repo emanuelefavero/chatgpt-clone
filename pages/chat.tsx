@@ -128,6 +128,9 @@ export default function Chat() {
         </section>
       </main>
 
+      {/* WHITE SPACE BEFORE FOOTER */}
+      <div className='w-full h-44 bg-primaryBackground'></div>
+
       {/* FOOTER */}
       <footer
         className={`${inter.className} w-full flex justify-center items-center fixed bottom-0 bg-primaryBackground pb-2`}
