@@ -97,6 +97,8 @@ export default function Chat() {
           </div>
         </section>
 
+        {/* TODO: Add the asked question section */}
+
         {/* ANSWER SECTION */}
         <section className='w-full flex justify-center bg-slate-800 py-5 px-4'>
           <div className='max-w-2xl container flex flex-row justify-start items-start'>
@@ -110,6 +112,7 @@ export default function Chat() {
             <p className='text-slate-200 leading-7'>
               {/* TODO: uncomment next line and remove lorem text */}
               {/* {answer} */}
+              {/* TODO: Try to see if the output is in markdown, if it is use a react markdown library to style the answer output */}
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Voluptatum labore delectus, odit voluptates rem dolores porro
               vitae inventore in deserunt tenetur optio commodi exercitationem
