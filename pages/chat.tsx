@@ -58,7 +58,7 @@ export default function Chat() {
       {/* MAIN */}
       <main className={inter.className}>
         {/* INPUT SECTION */}
-        <section className='w-full h-32 bg-gradient-to-t from-primaryBackground to-transparent fixed bottom-8 left-0 flex justify-center items-center p-5 sm:bottom-6'>
+        <section className='w-full h-32 bg-gradient-to-t from-primaryBackground to-transparent fixed bottom-12 left-0 flex justify-center items-center p-5 xxs:bottom-8 sm:bottom-6'>
           {/* TIP: see tailwind.config.js for shadow-custom values */}
           <div className='container flex bg-slate-800 max-w-2xl py-3 px-4 rounded-md border border-slate-700 shadow-custom'>
             <div className='flex-1 flex flex-col'>
@@ -99,36 +99,43 @@ export default function Chat() {
 
         {/* TODO: Add the asked question section */}
 
-        {/* ANSWER SECTION */}
-        <section className='w-full flex justify-center bg-slate-800 py-5 px-4'>
-          <div className='max-w-2xl container flex flex-row justify-start items-start'>
-            <Image
-              className='select-none mr-5 mb-4'
-              src='/logo.png'
-              alt='logo'
-              width={30}
-              height={30}
-            />
-            <p className='text-slate-200 leading-7'>
-              {/* TODO: uncomment next line and remove lorem text */}
-              {/* {answer} */}
-              {/* TODO: Try to see if the output is in markdown, if it is use a react markdown library to style the answer output */}
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptatum labore delectus, odit voluptates rem dolores porro
-              vitae inventore in deserunt tenetur optio commodi exercitationem
-              quaerat laudantium ex. Magni nisi aliquam quod, nam incidunt quas
-              ratione omnis possimus et porro nobis maiores exercitationem
-              accusantium laborum quaerat vero, quae provident numquam dolor
-              facilis! Quod corrupti blanditiis reprehenderit! Obcaecati dicta
-              necessitatibus sequi excepturi esse dolorem delectus, consequatur
-              odio, soluta atque sit eligendi omnis vel quidem deleniti ratione.
-              Odit doloribus animi repellat quae, ex atque libero vel
-              accusantium recusandae sunt natus dolore quam velit sint deserunt?
-              Dolorum, deserunt incidunt consectetur commodi laborum
-              voluptatibus ex?
-            </p>
-          </div>
-        </section>
+        {answer && (
+          <>
+            {/* ANSWER SECTION */}
+            <section className='w-full flex justify-center bg-slate-800 py-5 px-4'>
+              <div className='max-w-2xl container flex flex-row justify-start items-start'>
+                <Image
+                  className='select-none mr-5 hidden xxs:inline-block'
+                  src='/logo.png'
+                  alt='logo'
+                  width={30}
+                  height={30}
+                />
+                <p className='text-slate-200 leading-7'>
+                  {/* TODO: uncomment next line and remove lorem text */}
+                  {answer}
+                  {/* TODO: Try to see if the output is in markdown, if it is use a react markdown library to style the answer output */}
+
+                  {/* LOREM IPSUM TEXT FOR TESTING PURPOSES */}
+                  {/* Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Voluptatum labore delectus, odit voluptates rem dolores porro
+                  vitae inventore in deserunt tenetur optio commodi
+                  exercitationem quaerat laudantium ex. Magni nisi aliquam quod,
+                  nam incidunt quas ratione omnis possimus et porro nobis
+                  maiores exercitationem accusantium laborum quaerat vero, quae
+                  provident numquam dolor facilis! Quod corrupti blanditiis
+                  reprehenderit! Obcaecati dicta necessitatibus sequi excepturi
+                  esse dolorem delectus, consequatur odio, soluta atque sit
+                  eligendi omnis vel quidem deleniti ratione. Odit doloribus
+                  animi repellat quae, ex atque libero vel accusantium
+                  recusandae sunt natus dolore quam velit sint deserunt?
+                  Dolorum, deserunt incidunt consectetur commodi laborum
+                  voluptatibus ex? */}
+                </p>
+              </div>
+            </section>
+          </>
+        )}
       </main>
 
       {/* WHITE SPACE BEFORE FOOTER */}

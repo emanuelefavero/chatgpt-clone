@@ -9,6 +9,16 @@ module.exports = {
     // "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    screens: {
+      xxs: '240px',
+      xs: '320px',
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px',
+    },
+
     extend: {
       boxShadow: {
         custom: '0 0 7px 3px rgba(11, 11, 13, 0.15)',

@@ -9,7 +9,7 @@ export default function Footer() {
         </a>{' '}
         {`© ${new Date().getFullYear()} `}
         <span className='hidden sm:inline'>
-          <span className='mx-1'>&bull;</span> chatGPT clone using the OpenAI
+          <span className='mx-1'>&bull;</span> ChatGPT clone using the OpenAI
           API
         </span>
       </p>
