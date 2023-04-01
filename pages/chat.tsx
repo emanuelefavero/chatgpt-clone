@@ -3,6 +3,7 @@ import { useState, useRef } from 'react'
 import Image from 'next/image'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import Loader from '@/components/Loader'
 import ReactMarkdown from 'react-markdown'
 import { IoPaperPlaneOutline } from 'react-icons/io5'
 import { Inter } from 'next/font/google'
@@ -12,12 +13,14 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Chat() {
   const [question, setQuestion] = useState('')
   const [answer, setAnswer] = useState('')
+  const [loading, setLoading] = useState(false)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
   const [textareaHeight, setTextareaHeight] = useState<number | undefined>(
     undefined
   )
 
   async function handleAsk() {
+    setLoading(true)
     const response = await fetch('/api/openai', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -27,7 +30,8 @@ export default function Chat() {
     const { answer } = await response.json()
 
     setAnswer(answer)
-    setQuestion('')
+    setLoading(false)
+    // setQuestion('')
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -59,51 +63,16 @@ export default function Chat() {
 
       {/* MAIN */}
       <main className={inter.className}>
-        {/* INPUT SECTION */}
-        <section className='w-full h-32 bg-gradient-to-t from-primaryBackground to-transparent fixed bottom-12 left-0 flex justify-center items-center p-5 xxs:bottom-8 sm:bottom-6'>
-          {/* TIP: see tailwind.config.js for shadow-custom values */}
-          <div className='container flex bg-slate-800 max-w-2xl py-3 px-4 rounded-md border border-slate-700 shadow-custom'>
-            <div className='flex-1 flex flex-col'>
-              <textarea
-                className='w-full resize-none overflow-hidden h-6 flex items-center justify-center bg-slate-800 text-md font-medium mr-3 scrollbar-bg-slate-800 placeholder-slate-500 focus:outline-none transition-height duration-300 outline-none'
-                placeholder='Send a message...'
-                ref={textareaRef}
-                value={question}
-                onChange={handleInputChange}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-                style={{
-                  overflowY: 'scroll',
-                  maxHeight: '15rem',
-                  scrollbarWidth: 'none',
-                  msOverflowStyle: 'none',
-                  ...(textareaHeight === undefined && { scrollbarHide: true }),
-                }}
-              />
-              <div className='flex-1'></div>{' '}
-              {/* empty space to push button to the bottom */}
-            </div>
-            <div className='flex justify-center items-end ml-1'>
-              <button
-                onClick={handleAsk}
-                className={`border-none rounded-md py-1 px-2 w-max h-max focus:outline-none ${
-                  question.length === 0
-                    ? 'text-slate-600'
-                    : 'text-slate-400 hover:bg-slate-900'
-                }`}
-                disabled={question.length === 0}
-              >
-                <IoPaperPlaneOutline />
-              </button>
-            </div>
-          </div>
-        </section>
-
         {/* TODO: Add the asked question section */}
 
-        {answer && (
+        {loading ? (
           <>
-            {/* ANSWER SECTION */}
+            {/* LOADER */}
+            <Loader />
+          </>
+        ) : answer ? (
+          <>
+            {/* answer, show ANSWER SECTION */}
             <section className='w-full flex justify-center bg-slate-800 py-5 px-4'>
               <div className='max-w-2xl container flex flex-row justify-start items-start md:relative md:right-4'>
                 <Image
@@ -113,7 +82,7 @@ export default function Chat() {
                   width={30}
                   height={30}
                 />
-                <p className='text-slate-200 leading-7'>
+                <div className='text-slate-200 leading-7'>
                   {/* RENDER MARKDOWN */}
                   <ReactMarkdown className={styles.markdown}>
                     {answer}
@@ -136,11 +105,58 @@ export default function Chat() {
                   recusandae sunt natus dolore quam velit sint deserunt?
                   Dolorum, deserunt incidunt consectetur commodi laborum
                   voluptatibus ex? */}
-                </p>
+                </div>
               </div>
             </section>
           </>
+        ) : (
+          // no answer, show WELCOME SCREEN
+          <section className='w-full mt-20 p-5 flex justify-center items-center'>
+            <h1 className='relative text-center text-3xl font-bold text-slate-200'>
+              ChatGPT Clone
+            </h1>
+          </section>
         )}
+
+        {/* INPUT SECTION */}
+        <section className='w-full h-32 bg-gradient-to-t from-primaryBackground to-transparent fixed bottom-12 left-0 flex justify-center items-center p-5 xxs:bottom-8 sm:bottom-6'>
+          {/* TIP: see tailwind.config.js for shadow-custom values */}
+          <div className='container flex bg-slate-800 max-w-2xl py-3 px-4 rounded-md border border-slate-700 shadow-custom'>
+            <div className='flex-1 flex flex-col'>
+              <textarea
+                className='w-full resize-none overflow-hidden h-6 flex items-center justify-center bg-slate-800 text-md font-medium mr-3 scrollbar-bg-slate-800 placeholder-slate-500 focus:outline-none transition-height duration-300 outline-none'
+                placeholder='Send a message...'
+                ref={textareaRef}
+                value={question}
+                onChange={handleInputChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+                style={{
+                  overflowY: 'scroll',
+                  maxHeight: '15rem',
+                  scrollbarWidth: 'none',
+                  msOverflowStyle: 'none',
+                  // ...(textareaHeight === undefined && { scrollbarHide: true }),
+                }}
+              />
+              <div className='flex-1'></div>{' '}
+              {/* empty space to push button to the bottom */}
+            </div>
+            <div className='flex justify-center items-end ml-1'>
+              <button
+                onClick={handleAsk}
+                className={`border-none rounded-md py-1 px-2 w-max h-max focus:outline-none ${
+                  question.length === 0
+                    ? 'text-slate-600'
+                    : 'text-slate-300 hover:bg-indigo-800'
+                }`}
+                disabled={question.length === 0}
+              >
+                <IoPaperPlaneOutline />
+              </button>
+            </div>
+          </div>
+        </section>
       </main>
 
       {/* WHITE SPACE BEFORE FOOTER */}
