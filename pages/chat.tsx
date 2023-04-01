@@ -89,6 +89,7 @@ export default function Chat() {
                   </ReactMarkdown>
 
                   {/* TODO: Add react-syntax-highlighter */}
+                  {/* @see https://github.com/remarkjs/react-markdown#use-custom-components-syntax-highlight */}
 
                   {/* LOREM IPSUM TEXT FOR TESTING PURPOSES */}
                   {/* Lorem ipsum dolor sit amet consectetur adipisicing elit.
