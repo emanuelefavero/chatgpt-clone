@@ -1,0 +1,131 @@
+.markdown {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  min-width: 0;
+  overflow-wrap: break-word;
+
+  overflow-x: auto;
+
+  * {
+    margin-bottom: 0.5rem;
+  }
+
+  // block of code
+  pre {
+    font-size: 0.95rem;
+    background-color: #020617;
+    border-radius: 0.5rem;
+    border: 1px solid hsla(214, 32%, 91%, 0.3);
+    padding: 1rem;
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+    margin-bottom: 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    min-width: 0;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    overflow-x: auto;
+
+    max-width: 655px;
+
+    @media screen and (max-width: 750px) {
+      max-width: 550px;
+    }
+
+    @media screen and (max-width: 585px) {
+      max-width: 440px;
+    }
+
+    @media screen and (max-width: 472px) {
+      max-width: 360px;
+    }
+
+    @media screen and (max-width: 400px) {
+      max-width: 340px;
+    }
+
+    @media screen and (max-width: 389px) {
+      max-width: 280px;
+      font-size: 0.8rem;
+    }
+
+    @media screen and (max-width: 305px) {
+      max-width: 200px;
+      font-size: 0.7rem;
+      padding: 0.4rem 0.5rem;
+      margin-left: 0rem;
+    }
+
+    @media screen and (max-width: 220px) {
+      max-width: 150px;
+    }
+
+    // code inside block of code
+    code {
+      color: #e2e8f0;
+      flex-wrap: wrap;
+      word-break: normal;
+      white-space: pre;
+    }
+  }
+
+  code {
+    color: #34d399;
+  }
+
+  ol {
+    list-style: decimal;
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  li {
+    margin-left: 1rem;
+
+    p {
+      color: #e2e8f0;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #e2e8f0;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  h3 {
+    font-size: 1.125rem;
+  }
+
+  h4 {
+    font-size: 1rem;
+  }
+
+  h5 {
+    font-size: 0.875rem;
+  }
+
+  h6 {
+    font-size: 0.75rem;
+  }
+}

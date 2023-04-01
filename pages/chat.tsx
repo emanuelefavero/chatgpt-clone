@@ -1,7 +1,9 @@
+import styles from '@/styles/chat.module.scss'
 import { useState, useRef } from 'react'
 import Image from 'next/image'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import ReactMarkdown from 'react-markdown'
 import { IoPaperPlaneOutline } from 'react-icons/io5'
 import { Inter } from 'next/font/google'
 
@@ -103,18 +105,21 @@ export default function Chat() {
           <>
             {/* ANSWER SECTION */}
             <section className='w-full flex justify-center bg-slate-800 py-5 px-4'>
-              <div className='max-w-2xl container flex flex-row justify-start items-start'>
+              <div className='max-w-2xl container flex flex-row justify-start items-start md:relative md:right-4'>
                 <Image
-                  className='select-none mr-5 hidden xxs:inline-block'
+                  className='select-none mr-5 hidden sm:inline-block'
                   src='/logo.png'
                   alt='logo'
                   width={30}
                   height={30}
                 />
                 <p className='text-slate-200 leading-7'>
-                  {/* TODO: uncomment next line and remove lorem text */}
-                  {answer}
-                  {/* TODO: Try to see if the output is in markdown, if it is use a react markdown library to style the answer output */}
+                  {/* RENDER MARKDOWN */}
+                  <ReactMarkdown className={styles.markdown}>
+                    {answer}
+                  </ReactMarkdown>
+
+                  {/* TODO: Add react-syntax-highlighter */}
 
                   {/* LOREM IPSUM TEXT FOR TESTING PURPOSES */}
                   {/* Lorem ipsum dolor sit amet consectetur adipisicing elit.
