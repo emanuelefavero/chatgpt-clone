@@ -77,7 +77,7 @@ export default function Chat() {
         ) : answer ? (
           <>
             {/* answer, show ANSWER SECTION */}
-            <section className='w-full flex justify-center bg-slate-800 py-5 px-4'>
+            <section className='w-full flex justify-center bg-slate-800 py-10 px-4'>
               <div className='max-w-2xl container flex flex-row justify-start items-start md:relative md:right-4'>
                 <Image
                   className='select-none mr-5 hidden sm:inline-block'
@@ -89,6 +89,7 @@ export default function Chat() {
                 <div className='text-slate-200 leading-7'>
                   {/* RENDER MARKDOWN WITH SYNTAX HIGHLIGHTING */}
                   <ReactMarkdown
+                    className={styles.markdown}
                     components={{
                       code({ node, inline, className, children, ...props }) {
                         const match = /language-(\w+)/.exec(className || '')
@@ -99,8 +100,7 @@ export default function Chat() {
                             PreTag='div'
                             // Custom styling
                             customStyle={{
-                              borderRadius: '10px',
-                              border: '1px solid rgb(45, 55, 72, 0.75)',
+                              padding: '0.4rem 1rem 0.2rem 1rem',
                             }}
                             {...props}
                           >

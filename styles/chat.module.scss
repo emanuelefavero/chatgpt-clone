@@ -14,13 +14,15 @@
   // block of code
   pre {
     font-size: 0.95rem;
-    background-color: #020617;
+    // background-color: #020617;
+    background-color: rgb(1, 22, 39);
     border-radius: 0.5rem;
-    border: 1px solid hsla(214, 32%, 91%, 0.3);
-    padding: 1rem;
-    margin-top: 0.5rem;
+    border: 1px solid rgb(45, 55, 72, 0.8);
+    // padding: 0.9rem 1rem 0.4rem;
+    padding: 0.4rem 0.5rem 0 0.5rem;
+    margin-top: 0.2rem;
     margin-left: 1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 
     display: flex;
     flex-direction: column;
@@ -57,7 +59,7 @@
       max-width: 200px;
       font-size: 0.7rem;
       padding: 0.4rem 0.5rem;
-      margin-left: 0rem;
+      margin-left: 0;
     }
 
     @media screen and (max-width: 220px) {
@@ -86,7 +88,10 @@
   }
 
   li {
+    margin-top: 0.3rem;
     margin-left: 1rem;
+    font-weight: 500;
+    color: #e2e8f0;
 
     p {
       color: #e2e8f0;
@@ -127,5 +132,10 @@
 
   h6 {
     font-size: 0.75rem;
+  }
+
+  p {
+    color: #cbd5e1;
+    margin-top: 0.4rem;
   }
 }
