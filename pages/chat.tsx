@@ -68,6 +68,9 @@ export default function Chat() {
       {/* MAIN */}
       <main className={inter.className}>
         {/* TODO: Add the asked question section */}
+        {/* TODO: (In the future when OpenAI adds this feature) Store the conversation memory to provide answers related with previous questions */}
+        {/* BEWARE: As of early 2023 OpenAI doesn't provide the ability to store conversation memory, you need to use third party tools such as this one:  */}
+        {/* @see https://github.com/transitive-bullshit/chatgpt-api */}
 
         {loading ? (
           <>

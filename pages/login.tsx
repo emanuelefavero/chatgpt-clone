@@ -50,7 +50,7 @@ export default function Login() {
 
       <ToastContainer />
 
-      <main className='flex flex-col justify-center items-center w-full h-screen'>
+      <main className='flex flex-col justify-center items-center w-full h-screen select-none'>
         <Image
           className='mb-4 select-none animate-3d-rotate'
           src='/logo.png'
@@ -59,7 +59,7 @@ export default function Login() {
           height={44}
         />
         <p className='text-base font-medium mb-2'>Welcome to ChatGPT Clone</p>
-        <p className='text-base font-medium mb-4'>
+        <p className='text-base font-medium mb-6'>
           Say the magic word to continue
         </p>
 
@@ -68,7 +68,7 @@ export default function Login() {
           className='flex flex-wrap justify-center items-center'
         >
           <input
-            className='w-full sm:w-1/2 md:w-auto bg-indigo-900 bg-opacity-20 placeholder-slate-500 border-indigo-400 text-xl px-3 py-1 mb-3 sm:mb-0 sm:mr-1 rounded-lg md:mb-0'
+            className='w-full bg-indigo-900 bg-opacity-20 placeholder-slate-500 border-indigo-400 rounded-lg text-xl px-3 py-1 mb-3 sm:mb-0 sm:mr-1 sm:w-1/2 md:mb-0 md:w-auto focus:border-indigo-300'
             placeholder='Magic Word'
             type='password'
             value={secretWord}
@@ -76,7 +76,7 @@ export default function Login() {
             required
           />
           <button
-            className='bg-indigo-500 hover:bg-indigo-600 hover:border-indigo-600 border-indigo-500 text-xl px-3 py-1 sm:ml-1 rounded-lg w-full sm:w-auto'
+            className='bg-indigo-500 hover:bg-indigo-600 hover:border-indigo-600 border-indigo-500 text-xl px-3 py-1 sm:ml-1 rounded-lg w-full sm:w-auto focus:border-indigo-300'
             type='submit'
           >
             Login
