@@ -1,11 +1,15 @@
 import styles from '@/styles/chat.module.scss'
 import { useState, useRef } from 'react'
 import Image from 'next/image'
+import { IoPaperPlaneOutline } from 'react-icons/io5'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Loader from '@/components/Loader'
+
 import ReactMarkdown from 'react-markdown'
-import { IoPaperPlaneOutline } from 'react-icons/io5'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { nightOwl } from 'react-syntax-highlighter/dist/cjs/styles/prism'
+
 import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -83,13 +87,35 @@ export default function Chat() {
                   height={30}
                 />
                 <div className='text-slate-200 leading-7'>
-                  {/* RENDER MARKDOWN */}
-                  <ReactMarkdown className={styles.markdown}>
+                  {/* RENDER MARKDOWN WITH SYNTAX HIGHLIGHTING */}
+                  <ReactMarkdown
+                    components={{
+                      code({ node, inline, className, children, ...props }) {
+                        const match = /language-(\w+)/.exec(className || '')
+                        return !inline && match ? (
+                          <SyntaxHighlighter
+                            style={nightOwl as any}
+                            language={match[1]}
+                            PreTag='div'
+                            // Custom styling
+                            customStyle={{
+                              borderRadius: '10px',
+                              border: '1px solid rgb(45, 55, 72, 0.75)',
+                            }}
+                            {...props}
+                          >
+                            {String(children).replace(/\n$/, '')}
+                          </SyntaxHighlighter>
+                        ) : (
+                          <code className={className} {...props}>
+                            {children}
+                          </code>
+                        )
+                      },
+                    }}
+                  >
                     {answer}
                   </ReactMarkdown>
-
-                  {/* TODO: Add react-syntax-highlighter */}
-                  {/* @see https://github.com/remarkjs/react-markdown#use-custom-components-syntax-highlight */}
 
                   {/* LOREM IPSUM TEXT FOR TESTING PURPOSES */}
                   {/* Lorem ipsum dolor sit amet consectetur adipisicing elit.
