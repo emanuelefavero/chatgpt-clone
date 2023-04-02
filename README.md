@@ -1,8 +1,8 @@
-# chatGPT Clone
+# ChatGPT Clone
 
-This is a clone of the [chatGPT](https://chat.openai.com/chat) website that instead uses the [GPT API](https://platform.openai.com/docs/guides/chat)
+This is a clone of the [ChatGPT](https://chat.openai.com/chat) website that instead uses the [GPT API](https://platform.openai.com/docs/guides/chat)
 
-It is really useful if the free chatGPT is down
+It is really useful if the free ChatGPT is down
 
 ## Demo
 
