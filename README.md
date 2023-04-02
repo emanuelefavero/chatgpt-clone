@@ -4,6 +4,16 @@ This is a clone of the [chatGPT](https://chat.openai.com/chat) website that inst
 
 It is really useful if the free chatGPT is down
 
+## Demo
+
+- [https://chatgpt-clone-ten-eta.vercel.app/chat](https://chatgpt-clone-ten-eta.vercel.app/chat)
+
+#### Screenshot
+
+<img src="screenshot.jpeg" alt="screenshot" width="300">
+
+&nbsp;
+
 ## How to use
 
 - Clone the repo and `cd` into it

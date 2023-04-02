@@ -15,8 +15,9 @@ export default async function handler(
 
   try {
     const response = await openai.createChatCompletion({
+      // models: 'gpt-3.5-turbo', 'gpt-4'
       model: 'gpt-3.5-turbo',
-      temperature: 0.7,
+      temperature: 0.7, // 0.0 - 1.0
       messages: [
         {
           role: 'user',
