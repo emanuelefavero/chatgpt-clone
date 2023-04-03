@@ -56,6 +56,13 @@ export default function Chat() {
     }
   }
 
+  const handleClearQuestion = () => {
+    setTimeout(() => {
+      setQuestion('')
+      textareaRef.current?.focus()
+    }, 50)
+  }
+
   return (
     <>
       {/* HEADER */}
@@ -150,11 +157,17 @@ export default function Chat() {
 
         {/* INPUT SECTION */}
         <section className='w-full h-32 bg-gradient-to-t from-primaryBackground to-transparent fixed bottom-12 left-0 flex flex-col justify-center items-center p-5 xxs:bottom-9'>
-          <div className='w-full max-w-2xl'>
-            <button className='bg-indigo-600 text-indigo-100 border-none px-5 rounded mb-1 select-none hover:bg-indigo-700 focus:bg-indigo-500'>
-              Clear
-            </button>
-          </div>
+          {/* TODO: Move the clear button to the side and only show it when the input is in focus / taller */}
+          {/* <div className='w-full max-w-2xl flex justify-start items-center'>
+            {question && (
+              <button
+                onClick={handleClearQuestion}
+                className='bg-indigo-600 text-indigo-100 border-none px-5 rounded mb-1 select-none hover:bg-indigo-700 focus:bg-indigo-500 transition duration-1000 outline-none'
+              >
+                Clear
+              </button>
+            )}
+          </div> */}
 
           {/* TIP: see tailwind.config.js for shadow-custom values */}
           <div className='container flex bg-slate-800 max-w-2xl py-3 px-4 rounded-md border border-slate-700 shadow-custom'>
