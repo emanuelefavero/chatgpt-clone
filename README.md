@@ -37,3 +37,7 @@ npm run dev
 - Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 > Note: As of early 2023 OpenAI doesn't provide the ability to store conversation memory. If you want to implement this feature, you need to use third party tools such as this one: [https://github.com/transitive-bullshit/chatgpt-api](https://github.com/transitive-bullshit/chatgpt-api)
+
+## License
+
+- [MIT](LICENSE.md)
