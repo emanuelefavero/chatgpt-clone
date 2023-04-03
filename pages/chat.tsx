@@ -60,7 +60,7 @@ export default function Chat() {
     <>
       {/* HEADER */}
       <header
-        className={`${inter.className} flex justify-between items-center border-b border-slate-400 border-opacity-20`}
+        className={`${inter.className} w-full fixed flex justify-between items-center bg-primaryBackground border-b border-slate-300 border-opacity-20`}
       >
         <Header />
       </header>
@@ -80,7 +80,7 @@ export default function Chat() {
         ) : answer ? (
           <>
             {/* answer, show ANSWER SECTION */}
-            <section className='w-full flex justify-center bg-slate-800 py-10 px-4'>
+            <section className='w-full flex justify-center bg-slate-800 py-20 px-4'>
               <div className='max-w-2xl container flex flex-row justify-start items-start md:relative md:right-4'>
                 <Image
                   className='select-none mr-5 hidden sm:inline-block'
@@ -119,7 +119,6 @@ export default function Chat() {
                   >
                     {answer}
                   </ReactMarkdown>
-
                   {/* LOREM IPSUM TEXT FOR TESTING PURPOSES */}
                   {/* Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Voluptatum labore delectus, odit voluptates rem dolores porro
