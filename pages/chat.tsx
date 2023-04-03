@@ -149,7 +149,13 @@ export default function Chat() {
         )}
 
         {/* INPUT SECTION */}
-        <section className='w-full h-32 bg-gradient-to-t from-primaryBackground to-transparent fixed bottom-12 left-0 flex justify-center items-center p-5 xxs:bottom-8 sm:bottom-6'>
+        <section className='w-full h-32 bg-gradient-to-t from-primaryBackground to-transparent fixed bottom-12 left-0 flex flex-col justify-center items-center p-5 xxs:bottom-9'>
+          <div className='w-full max-w-2xl'>
+            <button className='bg-indigo-600 text-indigo-100 border-none px-5 rounded mb-1 select-none hover:bg-indigo-700 focus:bg-indigo-500'>
+              Clear
+            </button>
+          </div>
+
           {/* TIP: see tailwind.config.js for shadow-custom values */}
           <div className='container flex bg-slate-800 max-w-2xl py-3 px-4 rounded-md border border-slate-700 shadow-custom'>
             <div className='flex-1 flex flex-col'>
@@ -175,7 +181,7 @@ export default function Chat() {
             <div className='flex justify-center items-end ml-1'>
               <button
                 onClick={handleAsk}
-                className={`border-none rounded-md py-1 px-2 w-max h-max focus:outline-none ${
+                className={`border-none rounded-md py-1 px-2 w-max h-max focus:outline-none focus:bg-indigo-900 ${
                   question.length === 0
                     ? 'text-slate-600'
                     : 'text-slate-300 hover:bg-indigo-800'
@@ -190,7 +196,7 @@ export default function Chat() {
       </main>
 
       {/* WHITE SPACE BEFORE FOOTER */}
-      <div className='w-full h-44 bg-primaryBackground'></div>
+      <div className='w-full h-52 bg-primaryBackground'></div>
 
       {/* FOOTER */}
       <footer
