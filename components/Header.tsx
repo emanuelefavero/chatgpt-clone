@@ -14,7 +14,7 @@ export default function Header() {
   }
 
   return (
-    <>
+    <div className='w-full max-w-screen-2xl flex justify-between items-center'>
       <button
         onClick={handleLogoutButtonClick}
         className='border-0 flex items-center px-0.5 rounded-md focus:outline-none focus:bg-slate-800 focus:bg-opacity-60'
@@ -29,6 +29,6 @@ export default function Header() {
         <FiPlus className='mr-2' />
         New chat
       </button>
-    </>
+    </div>
   )
 }
